@@ -20,7 +20,13 @@ export async function createTestD1(): Promise<{
 	const migrationFiles = fs.readdirSync(MIGRATIONS_DIR).sort();
 	for (const file of migrationFiles) {
 		const sql = fs.readFileSync(path.join(MIGRATIONS_DIR, file), "utf-8");
-		await db.exec(sql);
+		const statements = sql
+			.split(";")
+			.map((s) => s.trim())
+			.filter((s) => s.length > 0);
+		for (const statement of statements) {
+			await db.prepare(statement).run();
+		}
 	}
 
 	return { db, cleanup: () => mf.dispose() };
