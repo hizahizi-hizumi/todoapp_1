@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { IndexPage } from "@/pages/IndexPage";
+import { KanbanBoardPage } from "@/pages/kanban/KanbanBoardPage";
 
 export const Route = createFileRoute("/")({
-	component: IndexPage,
+	component: KanbanBoardPage,
 });
