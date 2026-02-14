@@ -13,6 +13,7 @@
 		"shared": "workspace:*"
 	},
 	"devDependencies": {
+		"miniflare": "^4.20260212.0",
 		"typescript": "~5.9.3",
 		"wrangler": "^4.4.0"
 	}

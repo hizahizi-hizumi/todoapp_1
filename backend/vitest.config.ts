@@ -9,7 +9,6 @@ export default defineProject({
 	},
 	test: {
 		name: "backend",
-		environment: "node",
 		include: ["src/**/*.{test,spec}.ts"],
 		globals: true,
 	},
