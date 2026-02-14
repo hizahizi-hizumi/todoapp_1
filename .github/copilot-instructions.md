@@ -18,7 +18,7 @@
 
 ### プロジェクト内容
 
-カンバンボード形式のTodoアプリケーション。タスクを Todo / In Progress / Done の3カラムで管理し、ドラッグ&ドロップでステータスを変更できる。
+カンバンボード形式のTodoアプリケーション。タスクを Todo / In Progress / Done の3カラムで管理し、@dnd-kit によるドラッグ&ドロップでステータス・並び順を変更できる。楽観的更新による即時的な UI フィードバックを実現。
 
 ### 技術スタック
 
@@ -27,7 +27,7 @@
 - パッケージマネージャ: Bun
 - 言語: TypeScript
 - リンター/フォーマッター: Biome
-- テスト: Vitest
+- テスト: Vitest + MSW (フロントエンド) + Miniflare (バックエンド D1 テスト)
 - バージョン管理: Git, GitHub
 - コードホスティング: GitHub
 - CI/CD: GitHub Actions
@@ -39,12 +39,13 @@
 - UIカタログ: Storybook
 - データフェッチ: TanStack Query
 - ルーティング: TanStack Router
+- ドラッグ&ドロップ: @dnd-kit
 - モックサーバー: msw
 
 #### バックエンド
 
 - フレームワーク: Hono
-
+- データベース: Cloudflare D1 (SQLite)
 
 #### インフラ
 
