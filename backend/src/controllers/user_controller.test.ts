@@ -9,7 +9,7 @@ describe("user_controller", () => {
 
 			expect(res.status).toBe(200);
 
-			const json = await res.json();
+			const json = (await res.json()) as Record<string, unknown>;
 			expect(json).toHaveProperty("users");
 			expect(json.users).toHaveLength(3);
 			expect(json.users).toEqual([
@@ -22,7 +22,7 @@ describe("user_controller", () => {
 		it("ユーザーの配列を返すこと", async () => {
 			const res = await user_controller.request("/");
 
-			const json = await res.json();
+			const json = (await res.json()) as Record<string, unknown>;
 			expect(Array.isArray(json.users)).toBe(true);
 		});
 	});
@@ -34,7 +34,7 @@ describe("user_controller", () => {
 
 				expect(res.status).toBe(200);
 
-				const json = await res.json();
+				const json = (await res.json()) as Record<string, unknown>;
 				expect(json).toHaveProperty("user");
 				expect(json.user).toEqual({
 					id: 1,
@@ -46,7 +46,7 @@ describe("user_controller", () => {
 			it("正しいプロパティを持つユーザーを返すこと", async () => {
 				const res = await user_controller.request("/2");
 
-				const json = await res.json();
+				const json = (await res.json()) as Record<string, unknown>;
 				expect(json.user).toHaveProperty("id");
 				expect(json.user).toHaveProperty("name");
 				expect(json.user).toHaveProperty("email");
@@ -59,7 +59,7 @@ describe("user_controller", () => {
 
 				expect(res.status).toBe(400);
 
-				const json = await res.json();
+				const json = (await res.json()) as Record<string, unknown>;
 				expect(json).toHaveProperty("message");
 				expect(json.message).toBe("Invalid user id");
 			});
@@ -71,7 +71,7 @@ describe("user_controller", () => {
 
 				expect(res.status).toBe(400);
 
-				const json = await res.json();
+				const json = (await res.json()) as Record<string, unknown>;
 				expect(json.message).toBe("Invalid user id");
 			});
 		});
@@ -82,7 +82,7 @@ describe("user_controller", () => {
 
 				expect(res.status).toBe(404);
 
-				const json = await res.json();
+				const json = (await res.json()) as Record<string, unknown>;
 				expect(json).toHaveProperty("message");
 				expect(json.message).toBe("User with id 999 not found");
 			});
