@@ -1,0 +1,53 @@
+{
+	"name": "frontend",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"routes:gen": "bunx tsr generate",
+		"build": "tsc -b && vite build",
+		"typecheck": "tsc -b --incremental",
+		"typecheck:ci": "tsc -b",
+		"init-pages": "wrangler pages project create ${PROJECT_NAME}-frontend --production-branch=main",
+		"deploy": "wrangler pages deploy dist --project-name=${PROJECT_NAME}-frontend",
+		"deploy:prod": "wrangler pages deploy dist --project-name=${PROJECT_NAME}-frontend --branch=main",
+		"storybook": "storybook dev -p ${STORYBOOK_PORT:-6006}",
+		"storybook:build": "storybook build"
+	},
+	"dependencies": {
+		"@ant-design/icons": "^6.1.0",
+		"@tanstack/react-router": "^1.157.18",
+		"@tanstack/router-devtools": "^1.157.18",
+		"antd": "^6.2.2",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
+		"shared": "workspace:*",
+		"wrangler": "v4.4.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.1",
+		"@storybook/addon-essentials": "~8.6.0",
+		"@storybook/addon-interactions": "~8.6.0",
+		"@storybook/addon-links": "~8.6.0",
+		"@storybook/blocks": "~8.6.0",
+		"@storybook/react": "~8.6.0",
+		"@storybook/react-vite": "~8.6.0",
+		"@tanstack/router-plugin": "^1.157.18",
+		"@types/node": "^24.10.1",
+		"@types/react": "^19.2.5",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.1",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"eslint": "^9.39.1",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"eslint-plugin-react-refresh": "^0.4.24",
+		"globals": "^16.5.0",
+		"msw": "^2.12.10",
+		"storybook": "~8.6.0",
+		"typescript": "~5.9.3",
+		"typescript-eslint": "^8.46.4",
+		"vite": "^7.2.4",
+		"vite-tsconfig-paths": "^6.0.5"
+	}
+}

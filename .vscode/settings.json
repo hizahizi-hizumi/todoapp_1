@@ -1,0 +1,65 @@
+{
+	"chat.promptFilesLocations": {
+		".github/prompts/**/*.prompt.md": true
+	},
+	"chat.instructionsFilesLocations": {
+		".github/instructions/**/*.instructions.md": true
+	},
+	"github.copilot.chat.useResponsesApi": true,
+	"github.copilot.chat.responsesApiReasoningEffort": "high",
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[css]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"json.validate.enable": false,
+	"json.format.enable": false,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+	"chat.tools.terminal.autoApprove": {
+		"bun biome": true,
+		"bun run biome": true,
+		"bun run test": true,
+		"git add": true,
+		"git commit": true,
+		"gh pr create --draft": true,
+		"git checkout -b": true,
+		"git push --set-upstream origin": true,
+		"git push.*main": false,
+		"git push.*master": false,
+		"gh .*view": true,
+		"gh .*list": true,
+		"bun install": true,
+		"bun run typecheck": true,
+		"bun run dev": true,
+		"git ls-remote": true,
+		"bun run storybook": true,
+		"bun add -(d|D)": true,
+		"bun --filter (frontend|backend) add -(d|D)": true
+	}
+}
