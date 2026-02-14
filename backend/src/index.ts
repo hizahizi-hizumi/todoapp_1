@@ -2,8 +2,17 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 
 import { user_controller } from "@/controllers/user_controller";
+import { INTERNAL_SERVER_ERROR } from "@/utils/status_code";
 
-const app = new Hono();
+type Bindings = {
+	DB: D1Database;
+};
+
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.onError((err, c) => {
+	return c.json({ message: err.message }, INTERNAL_SERVER_ERROR);
+});
 
 app.use(
 	"/*",
