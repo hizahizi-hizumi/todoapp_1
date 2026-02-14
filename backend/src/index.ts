@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
+import { task_controller } from "@/controllers/task_controller";
 import { user_controller } from "@/controllers/user_controller";
 import { INTERNAL_SERVER_ERROR } from "@/utils/status_code";
 
@@ -23,5 +24,6 @@ app.use(
 );
 
 app.route("/users", user_controller);
+app.route("/tasks", task_controller);
 
 export default app;
